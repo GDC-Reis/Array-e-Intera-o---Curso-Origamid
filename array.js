@@ -150,3 +150,75 @@ resultado do console:
     2: "CSS 1"
     3: "JS 1"
 */
+
+
+
+// [].reduce()
+// "[].reduce(callback(acumulador, valorAtual, index, array), valorInicial)"
+// Executa a função de callback para cada item da Array.
+// Um valor especial existe nessa função de callback, ele é chamado de "acumulador", 
+// mas é na verdade apenas o retorno da iteração anterior.
+
+const aulas2 = [10, 25, 30];
+const total1 = aulas.reduce((acumulador, item) => {
+    return acumulador + item;
+}, 0); // 0 -> Valor do acumulador 
+total1; // 65
+
+// OBS:
+/*
+    Funciona da seguinte forma (é apresentado no console):
+    0 10  -> 0 Valor passado no acumulador, será somado o acumulador + 10 (primeiro index do array)
+    10 25 -> Valor do acumulador se torna 10 por conta da soma feita na primeira interação entre os items, agora o valor do acumulador (10) será somado ao segundo item do array (25) sendo o retorno do mesmo 35
+    35 30 -> O mesmo processo que ocorre acima, apenas trocando os valores
+    65 -> Valor final da iteração entre os items.
+*/
+
+const total2 = aulas.reduce((acc, cur) => acc + cur, 100);
+total2; // 165
+
+
+// ==== REDUCE PASSO A PASSO 1 ====
+/*
+    O primerio parâmetro do callback é o valor do segundo argumento passado no reduce(callback, inicial) durante a primeira iteração.
+    Nas interações seguintes este valor passa a ser o retornado pela anterior.
+
+
+    const aulas = [10, 25, 30];
+
+    // 1
+    aulas.reduce((0, 10 -> Primeiro Item do Array)) => {
+        return 0 + 10;
+        // 0 -> Valor declarado da iteração do arrau
+        // 10 -> Primeiro item do array
+    }, 0); // Retorna 10
+
+
+    // 2
+    aulas.reduce((10, 25 -> Segundo Item do Array) => {
+        return 10 + 25;
+        // 10 -> Retorno da primeira iteração
+        // 25 -> Segundo item do array
+    }, 0); // Retorna 35
+
+
+    // 3
+    aulas.reduce((35, 30 -> Terceiro Item do Array) => {
+        return 35 + 30;
+        // 35 -> Retorno da segunda iteração
+        // 30 -> Terceiro item do array
+    }, 0); // Retorna 65
+
+*/
+
+
+
+// Maior Valor com [].reduce()
+
+const numeros2 = [10, 25, 60, 5, 35, 10];
+
+const maiorValor = numeros.reduce((anterior, atual) => {
+    return anterior < atual ? atual : anterior;
+});
+
+maiorValor; // 60
