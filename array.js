@@ -247,7 +247,7 @@ const aulas3 = [
 ]
 
 const listaAulas = aulas3.reduce((acumulador, aula, index) => {
-    acumulador[index] = aulas3.nome;
+    acumulador[index] = aula.nome;
     return acumulador;
 }, {}); //{} -> Objeto Vazio 
 

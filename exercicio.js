@@ -1,37 +1,40 @@
-const comidas = ['Pizza', 'Frango', 'Carne', 'Macarrão'];
-// Remova o primeiro valor de comidas e coloque em uma variável
-let primeiroElemetoArray = comidas.slice().shift();
-// Remova o ultimo valor de comidas e coloque em uma váriavel
-let ultimoElementoArray = comidas.slice().pop();
-// Adicione 'Arroz' ao final do array
-comidas.push('Arroz');
-// Adicione 'Peixe' e 'Batata' ao início do array
-comidas.unshift('Peixe', 'Batata');
+// Selecione cada curso e retorne uma array com objetos contendo o título, descricao, aulas e horas de cada curso
 
 
-const estudantes = ['Marcio', 'Brenda', 'Joana', 'Kleber', 'Julia'];
-// Arrume os estudantes em ordem alfabética
-estudantes.sort();
-// Invera a ordem dos estudantes
-estudantes.reverse();
-// Verifique se Joana faz parte dos estudantes
-estudantes.includes('Joana');
-// Verifique se Juliana faz parte dos estudantes
-estudantes.includes('Juliana');
+// Retorne uma lista com os números maiores que 100
+const numeros = [3, 44, 333, 23, 122, 322, 33];
+const numerosMaiores100 = numeros.filter((n) => n > 100);
+
+// Verifique se Baixo faz parte da lista de instrumentos e retorne true
+const instrumentos = ['Guitarra', 'Baixo', 'Bateria', 'Teclado']
+const temBaixo = instrumentos.some((item) => item === 'Baixo');
 
 
-let html = `<section>
-                <div>Sobre</div>
-                <div>Produtos</div>
-                <div>Contato</div>
-            </section>`
+// Retorne o valor total das compras
+const compras = [
+  {
+    item: 'Banana',
+    preco: 'R$ 4,99'
+  },
+  {
+    item: 'Ovo',
+    preco: 'R$ 2,99'
+  },
+  {
+    item: 'Carne',
+    preco: 'R$ 25,49'
+  },
+  {
+    item: 'Refrigerante',
+    preco: 'R$ 5,35'
+  },
+  {
+    item: 'Quejo',
+    preco: 'R$ 10,60'
+  }
+]
 
-// substitua section por ul e div com li, ultilizando split e join
-let htmlString = html.split('section');
-htmlString = htmlString.join('ul')
-
-
-const carros = ['Ford', 'Fiat', 'VW', 'Honda'];
-// Remova o uíltimo carro, mas antes de remover salve a arry original em outra variável
-let newArray = carros.slice();
-carros.pop();
+const totalCompra =  compras.reduce((acc, item, index) => {
+    acc[index] = item.preco.replace('R$ ', '');
+    return acc;
+}, {});
