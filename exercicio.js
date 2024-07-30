@@ -1,5 +1,24 @@
 // Selecione cada curso e retorne uma array com objetos contendo o título, descricao, aulas e horas de cada curso
+const cursos = document.querySelectorAll('.curso'); // NodeList
 
+// Transformando em um array
+const arrayCursos = Array.from(cursos);
+
+/*OBS: Sempre que usarmos "retorno de array", será utilizado o método .map() */
+const objetosCurso = arrayCursos.map((curso) => {
+  const titulo = curso.querySelector('h1').innerText;
+  const descricao = curso.querySelector('p').innerText;
+  const qtdAulas = curso.querySelector('.aulas').innerText;
+  const horasCurso = curso.querySelector('.horas').innerText;
+  return {
+    titulo: titulo,
+    descricao: descricao,
+    qtdAulas: qtdAulas,
+    horasCurso: horasCurso,
+  };
+});
+
+objetosCurso;
 
 // Retorne uma lista com os números maiores que 100
 const numeros = [3, 44, 333, 23, 122, 322, 33];
@@ -34,7 +53,7 @@ const compras = [
   }
 ]
 
-const totalCompra =  compras.reduce((acc, item, index) => {
-    acc[index] = item.preco.replace('R$ ', '');
-    return acc;
-}, {});
+const totalCompra =  compras.reduce((acc, item) => {
+    const numeroLimpo = +item.preco.replace('R$ ', '').replace(',', '.');
+    return acc + numeroLimpo
+}, 0);

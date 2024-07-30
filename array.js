@@ -369,6 +369,7 @@ const buscaMaiorQue45 = numeros.filter(x => x > 45); // [88, 101]
 
 
 // Exemplo Filter em Objeto
+
 const aulas4 = [
     {
         nome: 'HTML 1',
